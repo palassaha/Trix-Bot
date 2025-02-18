@@ -1,31 +1,50 @@
 
-## Trix-Bot
+## TRIX-BOT
 
 
 ### Project Structure
 
 ```
+
 trix-bot/
-├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── main.py (FastAPI server)
-│   │   ├── database.py (Supabase connection)
-│   │   ├── models/ (Pydantic models for database tables)
-│   │   ├── routes/ (API routes)
-│   │   │   ├── chat.py (Chatbot routes)
-│   │   │   └── agent.py (AI agent routes)
-│   │   ├── services/ (Business logic)
-│   │   │   ├── chat_service.py (Chatbot logic)
-│   │   │   └── agent_service.py (AI agent logic)
-│   │   ├── utils/ (Helper functions)
-│   │   └── tests/ (Unit tests)
-├── frontend/ (Optional for testing)
-├── modelfiles/ (Ollama modelfiles)
-├── data/ (PDFs for fine-tuning)
+├── app/
+│   ├── core/
+│   │   ├── config.py
+│   │   └── security.py
+│   ├── db/
+│   │   ├── supabase.py
+│   │   └── models.py
+│   ├── routes/
+│   │   ├── chat.py
+│   │   ├── agent.py
+│   │   └── health.py
+│   ├── services/
+│   │   ├── chat/
+│   │   │   ├── modelfiles/
+│   │   │   ├── llm_handler.py
+│   │   │   └── rag.py
+│   │   └── agent/
+│   │       ├── modelfiles/
+│   │       ├── function_map.py
+│   │       └── agent_handler.py
+│   ├── main.py
+│   └── utils.py
+├── tests/
+│   ├── test_chat.py
+│   └── test_agent.py
+├── frontend/
+│   └── index.html
+├── docker/
+│   └── nginx/
 ├── Dockerfile
+├── docker-compose.yml
 ├── requirements.txt
-├── .github/workflows/ (CI/CD pipeline)
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── cd.yml
+├── .dockerignore
+├── .gitignore
 └── README.md
 
 ```
